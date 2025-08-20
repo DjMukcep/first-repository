@@ -23,7 +23,6 @@ public class TextAnimation {
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-
         }
     }  
 }

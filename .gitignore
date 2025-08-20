@@ -1,0 +1,27 @@
+# === Maven ===
+/target/
+
+# === IntelliJ IDEA ===
+/.idea/
+/*.iml
+
+# === Eclipse ===
+/.project
+/.classpath
+/.settings/
+
+# === NetBeans ===
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Compiled classes ===
+*.class
+*.log
