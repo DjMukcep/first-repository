@@ -1,7 +1,6 @@
 package roman.exercise;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
@@ -10,11 +9,14 @@ import java.util.HashMap;
 public class Exercise {
 
     public static void main(String[] args) {
-        HashMap<String,String> statesCapitals = new HashMap<>();
-        statesCapitals.put("Канада","Оттава");
-        statesCapitals.put("Ирак","Багдад");
-        statesCapitals.put("Австрия","Вена");
-        System.out.println(statesCapitals);
-        System.out.println("Столица Австрии - " + statesCapitals.get("Австрия"));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Бесполезное сообщение");
+        System.out.print("Введите год: ");
+        int year = scanner.nextInt();
+        String result = getYear(year);
+        System.out.print(" - " + result);
+    }
+    public static String getYear(int year){
+        return (year % 4 == 0) ? "год високосный": "год не високосный";
     }
 }
