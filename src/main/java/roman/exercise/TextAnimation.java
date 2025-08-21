@@ -11,7 +11,6 @@ public class TextAnimation {
     
     public static void main(String[] args)  {
         String text = "Status confirmed";
-        System.out.println("тест TextAnimation");
         textAnimation(text);
     }
     
