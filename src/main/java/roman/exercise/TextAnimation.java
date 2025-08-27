@@ -1,28 +1,43 @@
 
 package roman.exercise;
 
-import static java.lang.Thread.sleep;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
 /**
  *
  * @author djmukcep
  */
 public class TextAnimation {
-    
+
+    private final static  ScheduledExecutorService scheduler
+            = Executors.newScheduledThreadPool(1);
+
     public static void main(String[] args)  {
         String text = "Status confirmed";
         textAnimation(text);
     }
     
     private static void textAnimation(String text){
+        long totalDelay = 0;
+
         for(int i = 0; i < text.length(); i++){
-            System.out.print(text.charAt(i));
-            try {
-                if(Character.isWhitespace(text.charAt(i))) sleep(300);
-                sleep(205);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+            char ch = text.charAt(i);
+            final int index = i;
+            long delay = 210; // базовая задержка
+
+            if (Character.isWhitespace(ch)) {
+                delay += 300;
             }
+            totalDelay += delay;
+            scheduler.schedule(() -> {
+                System.out.print(ch);
+                if (index == text.length() - 1){
+                    scheduler.shutdown();
+                }
+            },totalDelay, TimeUnit.MILLISECONDS);
         }
     }  
 }
