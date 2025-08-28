@@ -4,8 +4,6 @@ package roman.exercise;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
 /**
  *
  * @author djmukcep
@@ -20,10 +18,10 @@ public class TextAnimation {
         textAnimation(text);
     }
     
-    private static void textAnimation(String text){
+    private static void textAnimation(String text) {
         long totalDelay = 0;
 
-        for(int i = 0; i < text.length(); i++){
+        for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
             final int index = i;
             long delay = 210; // базовая задержка
